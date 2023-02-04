@@ -16,7 +16,7 @@ class BaseModel:
                 elif key == "__class__":
                     pass
                 else:
-                    setattr(self, key, val)
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
