@@ -34,3 +34,7 @@ class BaseModel:
         obj_dict["updated_at"] = self.updated_at.isoformat()
         return obj_dict
 
+    @classmethod
+    def from_dict(cls, obj_dict):
+        kwargs = {k: v for k, v in obj_dict.items() if k != "__class__"}
+        return cls(**kwargs)
