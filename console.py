@@ -11,18 +11,18 @@ class HBNBCommand(cmd.Cmd):
         """
         quit command to exit the program
         """
-        return True
+        raise SystemExit
 
     def do_EOF(self, args):
         """
         EOF command to exit the program
         """
-        print("Goodbye, have a great day!")
-        return True
+        print("Goodbye")
+        raise SystemExit
 
     def emptyline(self):
         """
-        Empty line entered by user should not execute anything
+        Empty line or ENTER entered by user should not execute anything
         """
         pass
 
