@@ -5,6 +5,7 @@ from datetime import datetime
 
 
 class BaseModel:
+    """ TWO ARGS IMPLEMENT"""
     def __init__(self, *args, **kwargs):
         if kwargs:
             for key, value in kwargs.items():
@@ -23,19 +24,16 @@ class BaseModel:
             self.created_at = self.updated_at = datetime.now()
 
     def __str__(self):
-        """
-        returns string representation of BaseModel instance
-        """
+        """returns string representation of BaseModel instance"""
         return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """
-        updates attribute updated_at with current datetime
-        """
+        """updates attribute updated_at with current datetime"""
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
+        """DICTIONARY"""
         obj_dict = self.__dict__.copy()
         obj_dict["__class__"] = self.__class__.__name__
         obj_dict["created_at"] = self.created_at.isoformat()
