@@ -16,7 +16,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Empty line or ENTER entered by user should not execute anything"""
-        pass
+        return False
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
