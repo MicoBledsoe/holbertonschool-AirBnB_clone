@@ -21,8 +21,6 @@ class BaseModel:
         else:
             self.id = str(uuid.uuid4())
             self.created_at = self.updated_at = datetime.now()
-            storage.new(self)
-
     def __str__(self):
         """
         returns string representation of BaseModel instance
