@@ -63,5 +63,5 @@ class FileStorage:
         if os.path.exists(self.__file_path):
             with open(self.__file_path, 'r', encoding='utf-8') as f:
                 LoadDict = json.loads(f.read())
-             for key, val in LoadDict.items():
+            for key, val in LoadDict.items():
                 self.__objects[key] = eval(val["__class__"])(**val)
