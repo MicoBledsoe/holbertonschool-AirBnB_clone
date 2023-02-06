@@ -1,5 +1,5 @@
-# <center>[![HolbertonBnB]
-(https://github.com/MicoBledsoe/holbertonschool-AirBnB_clone/tree/Jason-Beagle/images)]
+# ![HolbertonBnB]
+(https://github.com/MicoBledsoe/holbertonschool-AirBnB_clone/blob/main/images/AirBnB.png)
 
 # Project 0x00. AirBnB Clone - The Console
 
