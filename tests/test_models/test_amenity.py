@@ -44,6 +44,7 @@ class TestAmenity(unittest.TestCase):
         self.assertTrue(hasattr(b, "created_at"))
         self.assertTrue(hasattr(b, "updated_at"))
         self.assertIn('name', dir(Amenity))
+        self.assertEqual(str, type(Amenity.name))
 
 if __name__ == "__main__":
     unittest.main()
