@@ -43,6 +43,7 @@ class TestAmenity(unittest.TestCase):
         self.assertTrue(hasattr(b, "id"))
         self.assertTrue(hasattr(b, "created_at"))
         self.assertTrue(hasattr(b, "updated_at"))
+        self.assertTrue(hasattr(b,"name"))
 
 if __name__ == "__main__":
     unittest.main()
