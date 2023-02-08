@@ -57,7 +57,7 @@ class FileStorage:
 
     def reload(self):
         """
-        desrializes a JSON file if one exists, if not does nothing
+        deserializes a JSON file if one exists, if not does nothing
         otherwise, does nothing.
         """
         if os.path.exists(self.__file_path):

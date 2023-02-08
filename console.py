@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""CONSOLE"""
+"""
+    Project 0x00. AirBnB clone - The console
+        console.py
+            entry point for command interpreter
+"""
 
 import cmd
 import re
@@ -60,9 +64,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, args):
         """Based on class name, prints string representation of an instance"""
-        # to create a list of strings that contain the input
+        # creates a list of strings from args and assigns to parse_args
         parse_args = args.split()
-        # parses argument into strings
         if len(parse_args) == 0:
             # if no argument is given,
             print("** class name missing **")
@@ -71,15 +74,16 @@ class HBNBCommand(cmd.Cmd):
         elif len(parse_args) < 2:
             # if parse_args is less than 2, input is incomplete, or
             if (parse_args[0] in HBNBCommand.classes) is True:
-                # if the ID is missing is True,
+                # if no id is given, print
                 print("** instance id missing **")
                 return
             else:
-                # no valid class give,
+                # if not given a valid class name
                 print("** class doesn't exist **")
                 return
 
         try:
+            # if parse args is within dict
             if (parse_args[0] in HBNBCommand.classes) is True:
                 # string format: 'class.id'
                 class_id = '.'.join(parse_args)
@@ -138,51 +142,44 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, args):
-        """Updates an instance by adding or updating attribute.
         """
-        if args == "" or line is None:
+        Updates an instance based on the class name and id
+        """
+        prompt_args = args.split()
+
+        if len(prompt_args) == 0:
+            # if no argument is passed, print
             print("** class name missing **")
             return
 
-        rex = r'^(\S+)(?:\s(\S+)(?:\s(\S+)(?:\s((?:"[^"]*")|(?:(\S)+)))?)?)?'
-        match = re.search(rex, line)
-        classname = match.group(1)
-        uid = match.group(2)
-        attribute = match.group(3)
-        value = match.group(4)
-        if not match:
-            print("** class name missing **")
-        elif classname not in self.classes():
-            print("** class doesn't exist **")
-        elif uid is None:
-            print("** instance id missing **")
+        if (prompt_args[0] in self.classes) is True:
+            # checks if the class name exists
+            if len(prompt_args) < 2:
+                print("** instance id missing **")
+                return
         else:
-            key = "{}.{}".format(classname, uid)
-            if key not in storage.all():
-                print("** no instance found **")
-            elif not attribute:
-                print("** attribute name missing **")
-            elif not value:
-                print("** value missing **")
-            else:
-                cast = None
-                if not re.search('^".*"$', value):
-                    if '.' in value:
-                        cast = float
-                    else:
-                        cast = int
-                else:
-                    value = value.replace('"', '')
-                attributes = storage.attributes()[classname]
-                if attribute in attributes:
-                    value = attributes[attribute](value)
-                elif cast:
-                    try:
-                        value = cast(value)
-                    except ValueError:
-                        pass  # fine, stay a string then
-                setattr(storage.all()[key], attribute, value)
-                storage.all()[key].save()
+            # if class name doesn't exist, print
+            print("** class doesn't exist **")
+            return
+        # stores strings from split to key
+        key = str(prompt_args[0]) + '.' + str(prompt_args[1])
+        objs = storage.all()
+
+        if (key in objs) is False:
+            # if value stored in key is within dictonary
+            print("** no instance found **")
+            return
+        elif len(prompt_args) < 3:
+            # if args contains class name but no attribute, print
+            print("** attribute name missing **")
+            return
+        elif len(prompt_args) < 4:
+            # if args contains class name, id, and attribute,
+            # but no value to update
+            print("** value missing **")
+            return
+        # using eval, we cast to correct attribute type
+        objs[key].__dict__[prompt_args[2]] = eval(prompt_args[3])
 
 
 if __name__ == '__main__':
