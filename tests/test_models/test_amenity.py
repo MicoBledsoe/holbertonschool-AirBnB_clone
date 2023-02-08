@@ -26,6 +26,7 @@ class TestAmenity(unittest.TestCase):
         self.resetStorage()
         pass
 
+    @classmethod
     def resetStorage(self):
         """Resets FileStorage data."""
         FileStorage._FileStorage__objects = {}
@@ -39,7 +40,9 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(str(type(b)), "<class 'models.amenity.Amenity'>")
         self.assertIsInstance(b, Amenity)
         self.assertTrue(issubclass(type(b), BaseModel))
-
+        self.assertTrue(hasattr(b, "id"))
+        self.assertTrue(hasattr(b, "created_at"))
+        self.assertTrue(hasattr(b, "updated_at"))
 
 if __name__ == "__main__":
     unittest.main()
