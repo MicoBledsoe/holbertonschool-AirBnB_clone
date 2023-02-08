@@ -56,12 +56,13 @@ class FileStorage:
             f.write(json.dumps(TempDict))
 
     def reload(self):
-        """
-        deserializes a JSON file if one exists, if not does nothing
-        otherwise, does nothing.
-        """
-        if os.path.exists(self.__file_path):
-            with open(self.__file_path, 'r', encoding='utf-8') as f:
-                LoadDict = json.loads(f.read())
-            for key, val in LoadDict.items():
-                self.__objects[key] = eval(val["__class__"])(**val)
+        """Deserialize the JSON file __file_path to __objects, if it exists."""
+        try:
+            with open(FileStorage.__file_path) as f:
+                objdict = json.load(f)
+                for o in objdict.values():
+                    cls_name = o["__class__"]
+                    del o["__class__"]
+                    self.new(eval(cls_name)(**o))
+        except FileNotFoundError:
+            return
