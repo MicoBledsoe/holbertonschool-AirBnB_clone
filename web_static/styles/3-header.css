@@ -1,6 +1,5 @@
 header {
-  background: url('../images/logo.png') 20px center no-repeat, #fff;
-  background-color: #484848;
+  background-color: #333333;
   height: 70px;
   width: 100%;
   display: flex;
@@ -9,12 +8,8 @@ header {
   border-bottom: 1px solid #CCCCCC;
 }
 
-header a {
-  text-decoration: none;
-  color: white;
+.logo {
+  background: url("../images/logo.png") no-repeat;
+  width: 200px;
+  height: 40px;
   margin-left: 20px;
-}
-
-header span {
-  margin-left: 10px;
-}
