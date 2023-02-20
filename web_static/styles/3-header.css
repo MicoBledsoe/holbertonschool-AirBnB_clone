@@ -1,0 +1,20 @@
+header {
+  background: url('../images/logo.png') 20px center no-repeat, #fff;
+  background-color: #484848;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+}
+
+header span {
+  margin-left: 10px;
+}
