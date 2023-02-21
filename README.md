@@ -1,4 +1,4 @@
-# !![logo](https://user-images.githubusercontent.com/108279441/220420428-302f0003-03ec-46d3-a16b-3e2ba77b9b6e.png)
+# ![logo](https://user-images.githubusercontent.com/108279441/220420428-302f0003-03ec-46d3-a16b-3e2ba77b9b6e.png)
 
 
 # Project 0x00. AirBnB Clone - The Console
