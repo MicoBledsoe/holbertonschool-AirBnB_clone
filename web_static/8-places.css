@@ -1,0 +1,11 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price_by_night {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FF5A5F;
