@@ -1,22 +1,16 @@
 header {
-	background-color: #333333;
-	height: 70px;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 1px solid #CCCCCC;
+    color: white;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px #CCCCCC;
+    border-style: solid;
 }
 
-.logo-container {
-	display: flex;
-	align-items: center;
-	margin-left: 20px;
-}
-
-.logo-container span {
-	margin-left: 10px;
-	font-size: 24px;
-	font-weight: bold;
-	color: white;
+.logo {
+    background-image: url('../images/logo.png');
+    vertical-align: middle;
+    margin-left: 20px;
+    height: 100%;
+    background-position: 20px;
+    background-repeat: no-repeat;
 }
